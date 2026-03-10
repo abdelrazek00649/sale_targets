@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- هدف 1 - تحقق 110% -->
+        <record id="demo_target_1" model="sale.target">
+            <field name="name">🏆 هدف يناير - Marc Demo</field>
+            <field name="salesperson_id" ref="base.user_demo"/>
+            <field name="target_amount">10000</field>
+            <field name="actual_amount">11000</field>
+            <field name="achievement">110</field>
+            <field name="reward_amount">550</field>
+            <field name="date_from">2026-01-01</field>
+            <field name="date_to">2026-01-31</field>
+            <field name="state">done</field>
+        </record>
+
+        <record id="demo_target_2" model="sale.target">
+            <field name="name">⭐ هدف فبراير - Mitchell Admin</field>
+            <field name="salesperson_id" ref="base.user_admin"/>
+            <field name="target_amount">15000</field>
+            <field name="actual_amount">14250</field>
+            <field name="achievement">95</field>
+            <field name="reward_amount">427</field>
+            <field name="date_from">2026-02-01</field>
+            <field name="date_to">2026-02-28</field>
+            <field name="state">done</field>
+        </record>
+
+        <record id="demo_target_3" model="sale.target">
+            <field name="name">🥇 هدف مارس - Marc Demo</field>
+            <field name="salesperson_id" ref="base.user_demo"/>
+            <field name="target_amount">12000</field>
+            <field name="actual_amount">14400</field>
+            <field name="achievement">120</field>
+            <field name="reward_amount">720</field>
+            <field name="date_from">2026-03-01</field>
+            <field name="date_to">2026-03-31</field>
+            <field name="state">done</field>
+        </record>
+
+        <record id="demo_target_4" model="sale.target">
+            <field name="name">⚡ هدف مارس - Mitchell Admin</field>
+            <field name="salesperson_id" ref="base.user_admin"/>
+            <field name="target_amount">20000</field>
+            <field name="actual_amount">15000</field>
+            <field name="achievement">75</field>
+            <field name="reward_amount">450</field>
+            <field name="date_from">2026-03-01</field>
+            <field name="date_to">2026-03-31</field>
+            <field name="state">active</field>
+        </record>
+
+        <record id="demo_target_5" model="sale.target">
+            <field name="name">📈 هدف أبريل - Marc Demo</field>
+            <field name="salesperson_id" ref="base.user_demo"/>
+            <field name="target_amount">18000</field>
+            <field name="actual_amount">9900</field>
+            <field name="achievement">55</field>
+            <field name="reward_amount">198</field>
+            <field name="date_from">2026-04-01</field>
+            <field name="date_to">2026-04-30</field>
+            <field name="state">active</field>
+        </record>
+
+        <record id="demo_target_6" model="sale.target">
+            <field name="name">⚠️ هدف أبريل - Mitchell Admin</field>
+            <field name="salesperson_id" ref="base.user_admin"/>
+            <field name="target_amount">25000</field>
+            <field name="actual_amount">7500</field>
+            <field name="achievement">30</field>
+            <field name="reward_amount">0</field>
+            <field name="date_from">2026-04-01</field>
+            <field name="date_to">2026-04-30</field>
+            <field name="state">active</field>
+        </record>
+
+        <record id="demo_target_7" model="sale.target">
+            <field name="name">🎯 هدف مايو - Marc Demo</field>
+            <field name="salesperson_id" ref="base.user_demo"/>
+            <field name="target_amount">14000</field>
+            <field name="actual_amount">14000</field>
+            <field name="achievement">100</field>
+            <field name="reward_amount">700</field>
+            <field name="date_from">2026-05-01</field>
+            <field name="date_to">2026-05-31</field>
+            <field name="state">active</field>
+        </record>
+
+        <record id="demo_target_8" model="sale.target">
+            <field name="name">💼 هدف مايو - Mitchell Admin</field>
+            <field name="salesperson_id" ref="base.user_admin"/>
+            <field name="target_amount">22000</field>
+            <field name="actual_amount">18700</field>
+            <field name="achievement">85</field>
+            <field name="reward_amount">561</field>
+            <field name="date_from">2026-05-01</field>
+            <field name="date_to">2026-05-31</field>
+            <field name="state">active</field>
+        </record>
+
+        <record id="demo_target_9" model="sale.target">
+            <field name="name">🔴 هدف يونيو - Marc Demo</field>
+            <field name="salesperson_id" ref="base.user_demo"/>
+            <field name="target_amount">16000</field>
+            <field name="actual_amount">3200</field>
+            <field name="achievement">20</field>
+            <field name="reward_amount">0</field>
+            <field name="date_from">2026-06-01</field>
+            <field name="date_to">2026-06-30</field>
+            <field name="state">active</field>
+        </record>
+
+        <record id="demo_target_10" model="sale.target">
+            <field name="name">🚀 هدف يونيو - Mitchell Admin</field>
+            <field name="salesperson_id" ref="base.user_admin"/>
+            <field name="target_amount">30000</field>
+            <field name="actual_amount">0</field>
+            <field name="achievement">0</field>
+            <field name="reward_amount">0</field>
+            <field name="date_from">2026-06-01</field>
+            <field name="date_to">2026-06-30</field>
+            <field name="state">draft</field>
+        </record>
+    </data>
+</odoo>

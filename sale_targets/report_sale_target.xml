@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_sale_target" model="ir.actions.report">
+        <field name="name">تقرير هدف المبيعات</field>
+        <field name="model">sale.target</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale_targets.report_sale_target_template</field>
+        <field name="report_file">sale_targets.report_sale_target_template</field>
+        <field name="binding_model_id" ref="model_sale_target"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_sale_target_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div style="text-align:center; margin-bottom:20px;">
+                            <h2 style="color:#00a09d;">📊 تقرير أهداف المبيعات</h2>
+                            <p style="color:#888;">
+                                <t t-esc="doc.date_from"/> — <t t-esc="doc.date_to"/>
+                            </p>
+                        </div>
+                        <hr/>
+                        <table class="table table-bordered" style="width:100%;">
+                            <thead style="background:#00a09d; color:white;">
+                                <tr>
+                                    <th style="padding:10px;">البيان</th>
+                                    <th style="padding:10px;">القيمة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:10px;">اسم الهدف</td>
+                                    <td style="padding:10px;"><t t-esc="doc.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;">المندوب</td>
+                                    <td style="padding:10px;"><t t-esc="doc.salesperson_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;">الهدف المطلوب</td>
+                                    <td style="padding:10px;"><t t-esc="doc.target_amount"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;">المبيعات الفعلية</td>
+                                    <td style="padding:10px;"><t t-esc="doc.actual_amount"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;">نسبة الإنجاز</td>
+                                    <td style="padding:10px;"><t t-esc="doc.achievement"/>%</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;">الأيام المتبقية</td>
+                                    <td style="padding:10px;"><t t-esc="doc.days_remaining"/> يوم</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;">الهدف اليومي</td>
+                                    <td style="padding:10px;"><t t-esc="doc.daily_target"/></td>
+                                </tr>
+                                <tr style="background:#e8f8f5;">
+                                    <td style="padding:10px;"><strong>المكافأة</strong></td>
+                                    <td style="padding:10px;"><strong><t t-esc="doc.reward_amount"/></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_sale_target_root"
+        name="أهداف المبيعات"
+        parent="sale.sale_menu_root"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_sale_target_list"
+        name="الأهداف"
+        parent="menu_sale_target_root"
+        action="action_sale_target"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_sale_target_leaderboard"
+        name="🏆 لوحة المتصدرين"
+        parent="menu_sale_target_root"
+        action="action_sale_target_leaderboard"
+        sequence="20"/>
+</odoo>

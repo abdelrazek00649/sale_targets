@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_target_form" model="ir.ui.view">
+        <field name="name">sale.target.form</field>
+        <field name="model">sale.target</field>
+        <field name="arch" type="xml">
+            <form string="هدف المبيعات">
+                <header>
+                    <button name="action_set_active" string="🚀 تفعيل الهدف" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_check_warnings" string="🔔 تحقق من التنبيهات" type="object" class="btn-warning" invisible="state != 'active'"/>
+                    <button name="action_set_done" string="✅ إنهاء وإرسال تقرير" type="object" class="btn-success" invisible="state != 'active'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,done"/>
+                </header>
+                <sheet>
+                    <div style="background:linear-gradient(135deg,#1a73e8,#0d47a1); border-radius:12px; padding:24px; margin-bottom:20px; color:white;">
+                        <div style="font-size:28px; font-weight:bold; margin-bottom:8px;">
+                            <field name="name" placeholder="اسم الهدف..."/>
+                        </div>
+                        <div style="font-size:14px; opacity:0.85;">
+                            📅 <field name="date_from"/> — <field name="date_to"/>
+                        </div>
+                    </div>
+                    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:20px;">
+                        <div style="background:#e8f0fe; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #1a73e8;">
+                            <div style="font-size:12px; color:#555; margin-bottom:6px;">🎯 الهدف المطلوب</div>
+                            <div style="font-size:22px; font-weight:bold; color:#1a73e8;"><field name="target_amount" nolabel="1"/></div>
+                        </div>
+                        <div style="background:#e6f4ea; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #34a853;">
+                            <div style="font-size:12px; color:#555; margin-bottom:6px;">✅ المبيعات الفعلية</div>
+                            <div style="font-size:22px; font-weight:bold; color:#34a853;"><field name="actual_amount" nolabel="1"/></div>
+                        </div>
+                        <div style="background:#fce8e6; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #ea4335;">
+                            <div style="font-size:12px; color:#555; margin-bottom:6px;">📊 نسبة الإنجاز</div>
+                            <div style="font-size:22px; font-weight:bold; color:#ea4335;"><field name="achievement" nolabel="1"/>%</div>
+                        </div>
+                        <div style="background:#fef7e0; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #fbbc04;">
+                            <div style="font-size:12px; color:#555; margin-bottom:6px;">🏆 المكافأة</div>
+                            <div style="font-size:22px; font-weight:bold; color:#fbbc04;"><field name="reward_amount" nolabel="1"/></div>
+                        </div>
+                    </div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;">
+                        <div style="background:#f8f9fa; border-radius:12px; padding:16px; border:1px solid #e0e0e0;">
+                            <div style="font-weight:bold; color:#1a73e8; margin-bottom:12px;">📋 بيانات الهدف</div>
+                            <div style="margin-bottom:8px;">
+                                <field name="salesperson_id"/>
+                            </div>
+                        </div>
+                        <div style="background:#f8f9fa; border-radius:12px; padding:16px; border:1px solid #e0e0e0;">
+                            <div style="font-weight:bold; color:#1a73e8; margin-bottom:12px;">⏱️ المتابعة اليومية</div>
+                            <div style="margin-bottom:8px;">
+                                <field name="days_remaining"/>
+                            </div>
+                            <div>
+                                <field name="daily_target"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background:#f8f9fa; border-radius:12px; padding:16px; border:1px solid #e0e0e0; margin-top:16px;">
+                        <div style="font-weight:bold; color:#1a73e8; margin-bottom:8px;">📊 نسبة الإنجاز</div>
+                        <field name="achievement" widget="progressbar" nolabel="1"/>
+                    </div>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sale_target_list" model="ir.ui.view">
+        <field name="name">sale.target.list</field>
+        <field name="model">sale.target</field>
+        <field name="arch" type="xml">
+            <list string="أهداف المبيعات"
+                  decoration-success="achievement &gt;= 100"
+                  decoration-warning="achievement &gt;= 50 and achievement &lt; 100"
+                  decoration-danger="achievement &lt; 50">
+                <field name="name"/>
+                <field name="salesperson_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="target_amount"/>
+                <field name="actual_amount"/>
+                <field name="achievement"/>
+                <field name="reward_amount"/>
+                <field name="daily_target"/>
+                <field name="days_remaining"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sale_target_kanban" model="ir.ui.view">
+        <field name="name">sale.target.kanban</field>
+        <field name="model">sale.target</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="salesperson_id"/>
+                <field name="target_amount"/>
+                <field name="actual_amount"/>
+                <field name="achievement"/>
+                <field name="reward_amount"/>
+                <field name="daily_target"/>
+                <field name="days_remaining"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <div style="border-radius:12px; overflow:hidden;">
+                            <div style="background:linear-gradient(135deg,#1a73e8,#0d47a1); padding:14px 16px; color:white;">
+                                <div style="font-size:16px; font-weight:bold;">
+                                    <field name="name"/>
+                                </div>
+                                <div style="font-size:12px; opacity:0.85; margin-top:4px;">
+                                    👤 <field name="salesperson_id"/>
+                                </div>
+                            </div>
+                            <div style="padding:14px 16px; background:white;">
+                                <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                                    <div style="text-align:center;">
+                                        <div style="font-size:11px; color:#888;">🎯 الهدف</div>
+                                        <div style="font-size:15px; font-weight:bold; color:#1a73e8;"><field name="target_amount"/></div>
+                                    </div>
+                                    <div style="text-align:center;">
+                                        <div style="font-size:11px; color:#888;">✅ الفعلي</div>
+                                        <div style="font-size:15px; font-weight:bold; color:#34a853;"><field name="actual_amount"/></div>
+                                    </div>
+                                    <div style="text-align:center;">
+                                        <div style="font-size:11px; color:#888;">🏆 مكافأة</div>
+                                        <div style="font-size:15px; font-weight:bold; color:#fbbc04;"><field name="reward_amount"/></div>
+                                    </div>
+                                </div>
+                                <div style="background:#f1f3f4; border-radius:8px; padding:8px; text-align:center;">
+                                    <div style="font-size:11px; color:#888;">📊 نسبة الإنجاز</div>
+                                    <div style="font-size:20px; font-weight:bold; color:#1a73e8;"><field name="achievement"/>%</div>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:11px; color:#888;">
+                                    <span>📅 <field name="days_remaining"/> يوم</span>
+                                    <span>📌 <field name="daily_target"/> يومياً</span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_sale_target_leaderboard" model="ir.actions.act_window">
+        <field name="name">🏆 لوحة المتصدرين</field>
+        <field name="res_model">sale.target</field>
+        <field name="view_mode">list</field>
+        <field name="domain">[]</field>
+        <field name="context">{'order': 'achievement desc'}</field>
+    </record>
+
+    <record id="action_sale_target" model="ir.actions.act_window">
+        <field name="name">أهداف المبيعات</field>
+        <field name="res_model">sale.target</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>
