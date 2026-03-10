@@ -1,229 +1,70 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap');
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            font-family: 'Cairo', sans-serif;
-            background: #f0f4f8;
-            color: #1a1a2e;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
             direction: rtl;
         }
-
-        /* Banner Image Wrapper */
-        .banner-wrapper {
+        .banner {
             width: 100%;
-            background: white;
-            padding: 15px;
             text-align: center;
+            margin-bottom: 20px;
         }
-
-        .banner-img {
-            width: 100%;
+        .banner img {
             max-width: 100%;
             height: auto;
-            display: block;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
         }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 50%, #42a5f5 100%);
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-icon {
-            width: 90px;
-            height: 90px;
-            background: white;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .hero h1 {
-            font-size: 36px;
-            font-weight: 900;
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .hero h2 {
-            font-size: 20px;
-            font-weight: 400;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 20px;
-        }
-
-        .hero-badges {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: white;
-            padding: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-
-        .stat-item { text-align: center; }
-        .stat-number { font-size: 32px; font-weight: 900; color: #1a73e8; display: block; }
-        .stat-label { font-size: 13px; color: #666; }
-
-        /* Section Layout */
-        .section {
-            padding: 50px 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 26px;
-            font-weight: 800;
-            color: #0d47a1;
-            margin-bottom: 30px;
-            border-right: 5px solid #1a73e8;
-            padding-right: 15px;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-bottom: 4px solid #1a73e8;
-            transition: 0.3s;
-        }
-
-        .feature-card:hover { transform: translateY(-5px); }
-        .feature-icon { font-size: 30px; margin-bottom: 15px; display: block; }
-        .feature-title { font-weight: 700; font-size: 18px; margin-bottom: 10px; color: #1a1a2e; }
-        .feature-desc { font-size: 14px; color: #555; line-height: 1.6; }
-
-        /* Contact Section */
-        .contact-box {
-            background: #0d47a1;
-            color: white;
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .contact-btn {
-            background: white;
-            color: #0d47a1;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        @media (max-width: 768px) {
-            .features-grid { grid-template-columns: 1fr; }
-            .stats-bar { gap: 20px; }
-        }
+        h1 { color: #1a1a2e; font-size: 28px; }
+        .info { color: #666; margin-bottom: 20px; }
+        .feature { margin-bottom: 15px; }
+        .feature strong { color: #0d47a1; font-size: 18px; }
+        .contact { background: #f4f4f4; padding: 15px; border-radius: 5px; margin-top: 30px; }
+        .whatsapp-link { color: #25d366; font-weight: bold; text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <div class="banner-wrapper">
-        <img src="/sale_targets/static/description/main_screenshot.png" class="banner-img" alt="Sales Targets Banner"/>
+    <div class="banner">
+        <img src="/sale_targets/static/description/main_screenshot.png" alt="Sales Targets Banner">
     </div>
 
-    <div class="hero">
-        <div class="hero-icon">🎯</div>
-        <h1>Sales Targets | أهداف المبيعات</h1>
-        <h2>إدارة الأهداف والمكافآت باحترافية داخل Odoo</h2>
-        <div class="hero-badges">
-            <span class="badge">Odoo 19.0</span>
-            <span class="badge">Sales Management</span>
-            <span class="badge">Multi-Language</span>
-        </div>
+    <h1>Odoo إدارة الأهداف والمكافآت باحترافية داخل</h1>
+    
+    <p class="info">
+        Odoo 19.0 | Sales Management | Multi-Language
+    </p>
+
+    <div class="feature">
+        <strong>🎯 تتبع دقيق | Precise Tracking 100%</strong>
+        <p>متابعة كاملة لكل حركة بيع ومقارنتها بالأهداف المحددة لحظة بلحظة.</p>
     </div>
 
-    <div class="stats-bar">
-        <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">تتبع دقيق | Precise Tracking</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">4+</span>
-            <span class="stat-label">أنواع مكافآت | Reward Types</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">PDF</span>
-            <span class="stat-label">تقارير فورية | Instant Reports</span>
-        </div>
+    <div class="feature">
+        <strong>💰 أنواع مكافآت | Reward Types +4</strong>
+        <p>نظام مرن لاحتساب العمولات والمكافآت بناءً على نسب الإنجاز المختلفة.</p>
     </div>
 
-    <div class="section">
-        <div class="section-title">المميزات الأساسية | Features</div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">🚀</span>
-                <div class="feature-title">أداء سريع</div>
-                <div class="feature-desc">تم تحسين الكود ليعمل بسلاسة مع قواعد البيانات الضخمة.</div>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">💰</span>
-                <div class="feature-title">نظام عمولات</div>
-                <div class="feature-desc">حساب العمولات بناءً على تحقيق الهدف البيعي بشكل آلي.</div>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">📱</span>
-                <div class="feature-title">واجهة مرنة</div>
-                <div class="feature-desc">تصميم عصري يتناسب مع جميع الشاشات ويدعم الوضع الليلي.</div>
-            </div>
-        </div>
+    <div class="feature">
+        <strong>📊 تقارير فورية | Instant Reports PDF</strong>
+        <p>استخراج تقارير احترافية بضغطة زر واحدة لمراجعة أداء الفريق.</p>
     </div>
 
-    <div class="section">
-        <div class="contact-box">
-            <h2>هل تحتاج لمساعدة أو تعديل خاص؟</h2>
-            <p>تواصل مع المطور Mohamed Abdelrazek مباشرة</p>
-            <a href="https://wa.me/201050924550" class="contact-btn">تواصل عبر واتساب</a>
-        </div>
+    <div class="feature">
+        <strong>🚀 المميزات الأساسية | Features</strong>
+        <p>أداء سريع: تم تحسين الكود ليعمل بسلاسة مع قواعد البيانات الضخمة.</p>
+        <p>نظام عمولات: حساب آلي للعمولات بناءً على تحقيق الهدف البيعي.</p>
+        <p>واجهة مرنة: تصميم عصري يتناسب مع جميع الشاشات ويدعم الوضع الليلي.</p>
+    </div>
+
+    <div class="contact">
+        <h3>هل تحتاج لمساعدة أو تعديل خاص؟</h3>
+        <p>المطور: <strong>Mohamed Abdelrazek</strong></p>
+        <p>تواصل عبر واتساب: <a href="https://wa.me/201050924550" class="whatsapp-link">01050924550</a></p>
     </div>
 
 </body>
