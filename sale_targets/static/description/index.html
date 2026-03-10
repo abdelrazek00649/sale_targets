@@ -1,71 +1,677 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            direction: rtl;
-        }
-        .banner {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .banner img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-        }
-        h1 { color: #1a1a2e; font-size: 28px; }
-        .info { color: #666; margin-bottom: 20px; }
-        .feature { margin-bottom: 15px; }
-        .feature strong { color: #0d47a1; font-size: 18px; }
-        .contact { background: #f4f4f4; padding: 15px; border-radius: 5px; margin-top: 30px; }
-        .whatsapp-link { color: #25d366; font-weight: bold; text-decoration: none; }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    direction: rtl;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 50%, #42a5f5 100%);
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+}
+
+.hero-icon {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.hero h1 {
+    font-size: 36px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.hero h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 20px;
+}
+
+.hero-badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.badge {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Stats Bar */
+.stats-bar {
+    background: white;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 900;
+    color: #1a73e8;
+    display: block;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* Section */
+.section {
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0d47a1;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-subtitle {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 4px solid #1a73e8;
+    transition: transform 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(26,115,232,0.15);
+}
+
+.feature-icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+    display: block;
+}
+
+.feature-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.feature-title span {
+    font-size: 13px;
+    font-weight: 400;
+    color: #888;
+    display: block;
+    margin-top: 2px;
+}
+
+.feature-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* How it works */
+.steps {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.step {
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #1a73e8, #0d47a1);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 auto 14px;
+    box-shadow: 0 4px 15px rgba(26,115,232,0.3);
+}
+
+.step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.step-desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Rewards Table */
+.rewards-section {
+    background: linear-gradient(135deg, #e8f0fe, #f0f7ff);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 30px;
+}
+
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.reward-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.reward-medal {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.reward-pct {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1a73e8;
+    display: block;
+}
+
+.reward-label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.reward-bonus {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 8px;
+    display: block;
+}
+
+/* Architecture */
+.arch-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.arch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 24px;
+}
+
+.arch-box {
+    background: #f8faff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e0eaff;
+}
+
+.arch-box h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a73e8;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.arch-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.arch-box ul li {
+    font-size: 13px;
+    color: #555;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.arch-box ul li::before {
+    content: '✓';
+    color: #34a853;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* Contact */
+.contact-section {
+    background: linear-gradient(135deg, #0d47a1, #1a73e8);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+}
+
+.contact-section h3 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    font-size: 15px;
+    opacity: 0.85;
+    margin-bottom: 24px;
+}
+
+.contact-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    background: white;
+    color: #1a73e8;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.dark-bg {
+    background: #0a0f2e;
+    padding: 60px 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .rewards-grid { grid-template-columns: repeat(2, 1fr); }
+    .arch-grid { grid-template-columns: 1fr; }
+    .stats-bar { gap: 30px; }
+}
+</style>
 </head>
 <body>
 
-    <div class="banner">
-        <img src="/sale_targets/static/description/main_screenshot.png" alt="Sales Targets Banner">
-    </div>
+<!-- Main Screenshot for Odoo Apps Store -->
+<img src="main_screenshot.png" style="width:100%; display:block;"/>
 
-    <h1>Odoo إدارة الأهداف والمكافآت باحترافية داخل</h1>
-    
-    <p class="info">
-        Odoo 19.0 | Sales Management | Multi-Language
-    </p>
-
-    <div class="feature">
-        <strong>🎯 تتبع دقيق | Precise Tracking 100%</strong>
-        <p>متابعة كاملة لكل حركة بيع ومقارنتها بالأهداف المحددة لحظة بلحظة.</p>
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-icon">🎯</div>
+    <h1>Sales Targets | أهداف المبيعات</h1>
+    <h2>Track, Manage & Reward Your Sales Team | تتبع وإدارة ومكافأة فريق المبيعات</h2>
+    <div class="hero-badges">
+        <span class="badge">✅ Odoo 19</span>
+        <span class="badge">🔵 v 19.0.1.0.0</span>
+        <span class="badge">📦 Sales Module</span>
+        <span class="badge">🌍 Arabic &amp; English</span>
+        <span class="badge">📄 PDF Reports</span>
     </div>
+</div>
 
-    <div class="feature">
-        <strong>💰 أنواع مكافآت | Reward Types +4</strong>
-        <p>نظام مرن لاحتساب العمولات والمكافآت بناءً على نسب الإنجاز المختلفة.</p>
+<!-- Stats -->
+<div class="stats-bar">
+    <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <div class="stat-label">حساب تلقائي | Auto Calculation</div>
     </div>
+    <div class="stat-item">
+        <span class="stat-number">4</span>
+        <div class="stat-label">مستويات مكافآت | Reward Tiers</div>
+    </div>
+    <div class="stat-item">
+        <span class="stat-number">∞</span>
+        <div class="stat-label">عدد المندوبين | Salespersons</div>
+    </div>
+    <div class="stat-item">
+        <span class="stat-number">PDF</span>
+        <div class="stat-label">تقارير احترافية | Pro Reports</div>
+    </div>
+</div>
 
-    <div class="feature">
-        <strong>📊 تقارير فورية | Instant Reports PDF</strong>
-        <p>استخراج تقارير احترافية بضغطة زر واحدة لمراجعة أداء الفريق.</p>
-    </div>
+<!-- Features -->
+<div class="section">
+    <div class="section-title">✨ المميزات الرئيسية | Key Features</div>
+    <div class="section-subtitle">كل الأدوات اللي تحتاجها لإدارة وتحفيز فريق المبيعات</div>
 
-    <div class="feature">
-        <strong>🚀 المميزات الأساسية | Features</strong>
-        <p>أداء سريع: تم تحسين الكود ليعمل بسلاسة مع قواعد البيانات الضخمة.</p>
-        <p>نظام عمولات: حساب آلي للعمولات بناءً على تحقيق الهدف البيعي.</p>
-        <p>واجهة مرنة: تصميم عصري يتناسب مع جميع الشاشات ويدعم الوضع الليلي.</p>
-    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <span class="feature-icon">🎯</span>
+            <div class="feature-title">تحديد الأهداف
+                <span>Set Sales Targets</span>
+            </div>
+            <div class="feature-desc">حدد أهداف مبيعات لكل مندوب مع تحديد الفترة الزمنية بدقة. يدعم أهداف يومية وشهرية وسنوية.</div>
+        </div>
 
-    <div class="contact">
-        <h3>هل تحتاج لمساعدة أو تعديل خاص؟</h3>
-        <p>المطور: <strong>Mohamed Abdelrazek</strong></p>
-        <p>تواصل عبر واتساب: <a href="https://wa.me/201050924550" class="whatsapp-link">01050924550</a></p>
+        <div class="feature-card">
+            <span class="feature-icon">📊</span>
+            <div class="feature-title">متابعة تلقائية
+                <span>Auto Tracking</span>
+            </div>
+            <div class="feature-desc">حساب تلقائي للمبيعات الفعلية ونسبة الإنجاز مباشرة من أوامر البيع المؤكدة في النظام.</div>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">🏆</span>
+            <div class="feature-title">نظام المكافآت
+                <span>Rewards System</span>
+            </div>
+            <div class="feature-desc">احسب المكافآت تلقائياً بناءً على نسبة الإنجاز. 4 مستويات مختلفة تشجع الفريق على التميز.</div>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">📅</span>
+            <div class="feature-title">الهدف اليومي
+                <span>Daily Target</span>
+            </div>
+            <div class="feature-desc">احسب الهدف اليومي المطلوب بناءً على الأيام المتبقية والفجوة بين الهدف والمبيعات الحالية.</div>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">🔔</span>
+            <div class="feature-title">تنبيهات ذكية
+                <span>Smart Alerts</span>
+            </div>
+            <div class="feature-desc">تنبيهات تلقائية للمندوب والمدير عند التأخر في تحقيق الهدف، مع إرسال إيميل عند الإنجاز.</div>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">🏅</span>
+            <div class="feature-title">لوحة المتصدرين
+                <span>Leaderboard</span>
+            </div>
+            <div class="feature-desc">قارن أداء كل المندوبين في مكان واحد مرتبين من الأعلى للأقل نسبة إنجاز.</div>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">📄</span>
+            <div class="feature-title">تقرير PDF احترافي
+                <span>Professional PDF</span>
+            </div>
+            <div class="feature-desc">اطبع تقرير مفصل لكل هدف يشمل جميع البيانات والإحصائيات بشكل احترافي.</div>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">💙</span>
+            <div class="feature-title">ثيم أزرق عصري
+                <span>Modern Blue Theme</span>
+            </div>
+            <div class="feature-desc">واجهة احترافية جميلة مع كروت ملونة وشريط تقدم وكانبان متكامل.</div>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">📧</span>
+            <div class="feature-title">إرسال إيميل تلقائي
+                <span>Auto Email</span>
+            </div>
+            <div class="feature-desc">إرسال إيميل تهنئة تلقائي للمندوب عند تحقيق الهدف مع تفاصيل المكافأة.</div>
+        </div>
     </div>
+</div>
+
+<!-- How it works -->
+<div class="section">
+    <div class="steps">
+        <div class="section-title">⚙️ كيف يعمل النظام | How It Works</div>
+        <div class="section-subtitle">4 خطوات بسيطة لإدارة أهداف المبيعات</div>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-title">إنشاء هدف | Create</div>
+                <div class="step-desc">أنشئ هدف جديد، حدد المندوب والمبلغ المستهدف والفترة الزمنية</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title">تفعيل | Activate</div>
+                <div class="step-desc">اضغط زرار التفعيل لبدء متابعة الهدف وتتبع المبيعات تلقائياً</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title">متابعة | Track</div>
+                <div class="step-desc">النظام يحسب تلقائياً المبيعات الفعلية والهدف اليومي والأيام المتبقية</div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-title">مكافأة | Reward</div>
+                <div class="step-desc">عند الإنهاء، النظام يحسب المكافأة ويرسل إيميل الإنجاز تلقائياً</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Rewards -->
+<div class="section">
+    <div class="rewards-section">
+        <div class="section-title">🏆 مستويات المكافآت | Reward Tiers</div>
+        <div class="section-subtitle">نظام مكافآت متدرج يحفز الفريق على تحقيق أعلى الأهداف</div>
+        <div class="rewards-grid">
+            <div class="reward-card">
+                <span class="reward-medal">🥇</span>
+                <span class="reward-pct">100%+</span>
+                <div class="reward-label">تحقيق كامل | Full Achievement</div>
+                <span class="reward-bonus" style="color:#34a853;">5% مكافأة</span>
+            </div>
+            <div class="reward-card">
+                <span class="reward-medal">🥈</span>
+                <span class="reward-pct">75% - 99%</span>
+                <div class="reward-label">إنجاز ممتاز | Excellent</div>
+                <span class="reward-bonus" style="color:#1a73e8;">3% مكافأة</span>
+            </div>
+            <div class="reward-card">
+                <span class="reward-medal">🥉</span>
+                <span class="reward-pct">50% - 74%</span>
+                <div class="reward-label">إنجاز جيد | Good</div>
+                <span class="reward-bonus" style="color:#fbbc04;">1% مكافأة</span>
+            </div>
+            <div class="reward-card">
+                <span class="reward-medal">❌</span>
+                <span class="reward-pct">أقل من 50%</span>
+                <div class="reward-label">يحتاج دعم | Needs Support</div>
+                <span class="reward-bonus" style="color:#ea4335;">0% مكافأة</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Architecture -->
+<div class="section">
+    <div class="arch-section">
+        <div class="section-title">🔧 التحليل التقني | Technical Analysis</div>
+        <div class="section-subtitle">تفاصيل بنية النظام والملفات والتقنيات المستخدمة</div>
+        <div class="arch-grid">
+            <div class="arch-box">
+                <h4>📁 هيكل الملفات | File Structure</h4>
+                <ul>
+                    <li>models/sale_target.py — النموذج الرئيسي</li>
+                    <li>views/sale_target_views.xml — الواجهات</li>
+                    <li>views/sale_target_menu.xml — القوائم</li>
+                    <li>report_sale_target.xml — تقرير PDF</li>
+                    <li>security/ir.model.access.csv — الصلاحيات</li>
+                    <li>demo/demo.xml — بيانات تجريبية</li>
+                    <li>static/description/icon.png — الأيقونة</li>
+                </ul>
+            </div>
+            <div class="arch-box">
+                <h4>⚡ الحسابات التلقائية | Auto Computations</h4>
+                <ul>
+                    <li>_compute_actual_amount — المبيعات الفعلية</li>
+                    <li>_compute_achievement — نسبة الإنجاز %</li>
+                    <li>_compute_reward — قيمة المكافأة</li>
+                    <li>_compute_daily_target — الهدف اليومي</li>
+                    <li>_compute_daily_target — الأيام المتبقية</li>
+                </ul>
+            </div>
+            <div class="arch-box">
+                <h4>🎨 واجهات المستخدم | UI Views</h4>
+                <ul>
+                    <li>Form View — نموذج تفصيلي بثيم أزرق</li>
+                    <li>List View — قائمة مع ألوان الحالة</li>
+                    <li>Kanban View — كروت بصرية جميلة</li>
+                    <li>Leaderboard — لوحة المتصدرين</li>
+                    <li>PDF Report — تقرير قابل للطباعة</li>
+                    <li>Status Bar — مسودة ← نشط ← تم</li>
+                </ul>
+            </div>
+            <div class="arch-box">
+                <h4>🔐 الصلاحيات | Permissions</h4>
+                <ul>
+                    <li>Sales Manager — صلاحيات كاملة</li>
+                    <li>Sales User — قراءة وتعديل فقط</li>
+                    <li>mail.thread — تتبع التغييرات</li>
+                    <li>mail.activity.mixin — الأنشطة</li>
+                    <li>Chatter — سجل كامل للتغييرات</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fields -->
+<div class="section">
+    <div class="arch-section">
+        <div class="section-title">📋 حقول النظام | System Fields</div>
+        <div class="section-subtitle">جميع الحقول والبيانات المتاحة في نموذج أهداف المبيعات</div>
+        <div class="arch-grid">
+            <div class="arch-box">
+                <h4>📝 حقول الإدخال | Input Fields</h4>
+                <ul>
+                    <li>name — اسم الهدف</li>
+                    <li>salesperson_id — مندوب المبيعات</li>
+                    <li>target_amount — المبلغ المستهدف</li>
+                    <li>date_from — تاريخ البداية</li>
+                    <li>date_to — تاريخ النهاية</li>
+                    <li>state — حالة الهدف</li>
+                </ul>
+            </div>
+            <div class="arch-box">
+                <h4>🔄 حقول محسوبة | Computed Fields</h4>
+                <ul>
+                    <li>actual_amount — المبيعات الفعلية</li>
+                    <li>achievement — نسبة الإنجاز %</li>
+                    <li>reward_amount — قيمة المكافأة</li>
+                    <li>daily_target — الهدف اليومي</li>
+                    <li>days_remaining — الأيام المتبقية</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact -->
+<div class="section">
+    <div class="contact-section">
+        <h3>📞 تواصل مع المطور | Contact Developer</h3>
+        <p>Mohamed Abdelrazek — مطور Odoo متخصص في تطوير الوحدات الاحترافية</p>
+        <div class="contact-btns">
+            <a href="https://wa.me/201050924550" class="contact-btn">
+                💬 واتساب | WhatsApp
+            </a>
+            <a href="tel:+201050924550" class="contact-btn">
+                📞 01050924550
+            </a>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
